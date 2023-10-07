@@ -48,6 +48,8 @@ using PathCreation;
                         {
                             moveCar = lockTouch = true;
                             GameManager.gameManagerInstance.numberOfMoves--;
+                            GameManager.gameManagerInstance.UpdateMovesCount();
+
                         }
                     }
                 }
