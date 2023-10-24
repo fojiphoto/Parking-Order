@@ -10,15 +10,25 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.LogError(PlayerPrefsManager.Get(PlayerPrefsManager.CurrentLevel, 0)+" current Level");
+       // Debug.LogError(PlayerPrefsManager.Get(PlayerPrefsManager.CurrentLevel, 0)+" current Level");
 
         CurrentLevel = PlayerPrefsManager.Get(PlayerPrefsManager.CurrentLevel, 0);
+
 
         for (int i = 0; i < Levels.Count; i++)
         {
             Levels[i].SetActive(false);
-        }  
-        Levels[PlayerPrefsManager.Get(PlayerPrefsManager.CurrentLevel, 0)].SetActive(true);
+        }
+
+        if (CurrentLevel >= Levels.Count)
+        {
+            int C = Random.Range(5,Levels.Count);
+            Levels[C].SetActive(true);
+        }
+        else
+        {
+            Levels[PlayerPrefsManager.Get(PlayerPrefsManager.CurrentLevel, 0)].SetActive(true);
+        }
     }
 
 }

@@ -782,10 +782,10 @@ RectTransform:
   m_Father: {fileID: 966941959}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00012207031, y: -0.00012207031}
-  m_SizeDelta: {x: 1080, y: 1920}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1156709474
 GameObject:
@@ -919,6 +919,7 @@ GameObject:
   - component: {fileID: 1187192737}
   - component: {fileID: 1187192739}
   - component: {fileID: 1187192738}
+  - component: {fileID: 1187192740}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -944,10 +945,10 @@ RectTransform:
   m_Father: {fileID: 966941959}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1080, y: 1920}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1187192738
 MonoBehaviour:
@@ -987,6 +988,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187192736}
   m_CullTransparentMesh: 1
+--- !u!114 &1187192740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187192736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6226e4fe9422347a2106a7b08c7361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1239660069
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,7 +1115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Play: {fileID: 1898207536}
   PrivacyPolicy: {fileID: 1156709476}
-  PrivacyPolicy_Link: 
+  PrivacyPolicy_Link: https://factorialstudio.blogspot.com/2023/01/privacy-policy.html
   LoadingBar: {fileID: 527655663}
   LoadingPanel: {fileID: 1149057852}
 --- !u!4 &1867088049

@@ -53,11 +53,14 @@ public class GameManager : MonoBehaviour
 
     private void Pause()
     {
+        AdsManager.instance.ShowInterstitialWithoutConditions();
         PausePanel.SetActive(true);
     }
 
     public void Restart()
     {
+        AdsManager.instance.ShowInterstitialWithoutConditions();
+
         SceneManager.LoadScene("GamePlay");
         int lvl = PlayerPrefsManager.Get(PlayerPrefsManager.CurrentLevel, 0);
         if (victorybool)
@@ -68,6 +71,8 @@ public class GameManager : MonoBehaviour
 
     public void Home()
     {
+        AdsManager.instance.ShowInterstitialWithoutConditions();
+
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -78,6 +83,8 @@ public class GameManager : MonoBehaviour
 
     public void Next()
     {
+        //AdsManager.instance.ShowInterstitialWithoutConditions();
+
         SceneManager.LoadScene("GamePlay");
     }
 
@@ -92,6 +99,7 @@ public class GameManager : MonoBehaviour
             lvl++;
             LevelManager.CurrentLevel = lvl;
             PlayerPrefsManager.Set(PlayerPrefsManager.CurrentLevel, lvl);
+            AdsManager.instance.ShowInterstitialWithoutConditions();
         }
     }
 
@@ -103,6 +111,8 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("You Lose!");
             LevelFailPanel.SetActive(true);
+            AdsManager.instance.ShowInterstitialWithoutConditions();
+
         }
     }
     public void UpdateMovesCount()
