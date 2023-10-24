@@ -44,7 +44,9 @@ public class MainMenu : MonoBehaviour
 
     private void SwitchScene(string Scene)
     {
-        AdsManager.instance.HideMRec();
+        //AdsManager.instance.HideMRec();
+        CASAds.instance.HideMrecBanner();
+
         SceneManager.LoadScene(Scene);
     }
 }

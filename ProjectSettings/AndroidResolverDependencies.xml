@@ -1,14 +1,19 @@
 <dependencies>
   <packages>
-    <package>com.applovin.mediation:chartboost-adapter:9.4.1.0</package>
-    <package>com.applovin.mediation:unityads-adapter:4.8.0.0</package>
-    <package>com.applovin:applovin-sdk:11.11.2</package>
-    <package>com.google.android.gms:play-services-base:16.1.0</package>
+    <package>com.cleveradssolutions:bigo:4.1.2.1</package>
+    <package>com.cleveradssolutions:cas:3.3.2.1</package>
+    <package>com.cleveradssolutions:cas-promo:3.3.2</package>
+    <package>com.cleveradssolutions:cas-sdk:3.3.2</package>
+    <package>com.cleveradssolutions:facebook:6.16.0.0</package>
+    <package>com.cleveradssolutions:hyprmx:6.2.0.0</package>
+    <package>com.cleveradssolutions:kidoz:8.9.9.1</package>
+    <package>com.cleveradssolutions:smaato:22.0.2.1</package>
+    <package>com.cleveradssolutions:superawesome:9.1.0.3</package>
   </packages>
   <files />
   <settings>
     <setting name="androidAbis" value="arm64-v8a,armeabi-v7a" />
-    <setting name="bundleId" value="com.fsa.car.parking" />
+    <setting name="bundleId" value="com.og.parking" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />
     <setting name="gradlePropertiesTemplateEnabled" value="True" />

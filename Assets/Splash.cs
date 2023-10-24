@@ -14,7 +14,8 @@ public class Splash : MonoBehaviour
         LoadingBar.fillAmount = 0;
         LoadingBar.DOFillAmount(1, 5).OnComplete(() =>
         {
-            AdsManager.instance.ShowBanner();
+            //AdsManager.instance.ShowBanner();
+            CASAds.instance.ShowBanner(CAS.AdPosition.BottomCenter);
                 SceneManager.LoadScene("MainMenu");
         });
         
