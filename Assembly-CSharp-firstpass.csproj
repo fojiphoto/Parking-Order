@@ -320,6 +320,18 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.1f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Burst.Cecil.Pdb">
+      <HintPath>Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="CleverAdsSolutions.Common">
+      <HintPath>Assets\CleverAdsSolutions\Runtime\CleverAdsSolutions.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenPro">
+      <HintPath>Assets\Plugins\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
+    </Reference>
     <Reference Include="DemiLib">
       <HintPath>Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
     </Reference>
@@ -329,26 +341,14 @@
     <Reference Include="Unity.Burst.Cecil.Mdb">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Burst.Cecil.Pdb">
-      <HintPath>Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Burst.Cecil">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween">
-      <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Rocks">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
     </Reference>
-    <Reference Include="DOTweenPro">
-      <HintPath>Assets\Plugins\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
-    </Reference>
-    <Reference Include="CleverAdsSolutions.Common">
-      <HintPath>Assets\CleverAdsSolutions\Runtime\CleverAdsSolutions.Common.dll</HintPath>
+    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Android.Types">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.1f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
@@ -792,13 +792,13 @@
       <Project>{0FDB00E7-E18F-8798-E9D3-3CC86AAAB61E}</Project>
       <Name>Unity.2D.Sprite.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="CleverAdsSolutions.csproj">
+      <Project>{91394D36-A947-095B-5619-53F7C8EFD4A6}</Project>
+      <Name>CleverAdsSolutions</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.2D.Path.Editor.csproj">
       <Project>{9AC4444A-2E01-0D84-2C92-1157D983DD30}</Project>
       <Name>Unity.2D.Path.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.VisualScripting.SettingsProvider.Editor.csproj">
-      <Project>{A249E385-E3D3-4B1C-3F4B-42254E1922F3}</Project>
-      <Name>Unity.VisualScripting.SettingsProvider.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Flow.csproj">
       <Project>{F944315D-81B5-03CD-320A-65A862458192}</Project>
@@ -808,17 +808,21 @@
       <Project>{7F3FA21F-70B2-926D-D9B1-1DEEAE6E5120}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.PlasticSCM.Editor.csproj">
-      <Project>{037C623A-01DE-4A9D-DDF3-07A503E397AD}</Project>
-      <Name>Unity.PlasticSCM.Editor</Name>
+    <ProjectReference Include="CleverAdsSolutions-Editor.csproj">
+      <Project>{ED820066-2975-9D27-11E7-3DF523DC3F87}</Project>
+      <Name>CleverAdsSolutions-Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Rider.Editor.csproj">
       <Project>{8D8EF473-0FDA-8DCC-DE32-967248475C4D}</Project>
       <Name>Unity.Rider.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.2D.Psdimporter.Editor.csproj">
-      <Project>{D07C09E3-0672-D3B4-C357-D75848293F34}</Project>
-      <Name>Unity.2D.Psdimporter.Editor</Name>
+    <ProjectReference Include="Unity.PlasticSCM.Editor.csproj">
+      <Project>{037C623A-01DE-4A9D-DDF3-07A503E397AD}</Project>
+      <Name>Unity.PlasticSCM.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.SettingsProvider.Editor.csproj">
+      <Project>{A249E385-E3D3-4B1C-3F4B-42254E1922F3}</Project>
+      <Name>Unity.VisualScripting.SettingsProvider.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
       <Project>{6C292EE2-4041-E236-7EF9-4DCA2FAC7D9F}</Project>
@@ -828,9 +832,9 @@
       <Project>{0998617D-8D47-B830-DE54-FCA68AE70045}</Project>
       <Name>Unity.2D.Tilemap.Extras.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.InternalAPIEditorBridge.001.csproj">
-      <Project>{445E4B7E-173C-C190-3A79-5734CBD0E36E}</Project>
-      <Name>Unity.InternalAPIEditorBridge.001</Name>
+    <ProjectReference Include="Unity.2D.Psdimporter.Editor.csproj">
+      <Project>{D07C09E3-0672-D3B4-C357-D75848293F34}</Project>
+      <Name>Unity.2D.Psdimporter.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="PathCreator.csproj">
       <Project>{D17734D6-6727-9BDE-3061-54E303BEE45C}</Project>
@@ -859,6 +863,10 @@
     <ProjectReference Include="Unity.VisualScripting.Shared.Editor.csproj">
       <Project>{41212B9A-14B9-4A85-47EB-23DFCADE0A56}</Project>
       <Name>Unity.VisualScripting.Shared.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.InternalAPIEditorBridge.001.csproj">
+      <Project>{445E4B7E-173C-C190-3A79-5734CBD0E36E}</Project>
+      <Name>Unity.InternalAPIEditorBridge.001</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Animation.Runtime.csproj">
       <Project>{6D5E4485-52F1-326F-BA7D-3C8344AF5AD8}</Project>
@@ -895,14 +903,6 @@
     <ProjectReference Include="Unity.VisualScripting.State.csproj">
       <Project>{9C318DBE-6CFE-64F7-317B-890E7A8B58AA}</Project>
       <Name>Unity.VisualScripting.State</Name>
-    </ProjectReference>
-    <ProjectReference Include="CleverAdsSolutions.csproj">
-      <Project>{91394D36-A947-095B-5619-53F7C8EFD4A6}</Project>
-      <Name>CleverAdsSolutions</Name>
-    </ProjectReference>
-    <ProjectReference Include="CleverAdsSolutions-Editor.csproj">
-      <Project>{ED820066-2975-9D27-11E7-3DF523DC3F87}</Project>
-      <Name>CleverAdsSolutions-Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
