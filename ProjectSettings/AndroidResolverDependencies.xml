@@ -1,14 +1,15 @@
 <dependencies>
   <packages>
-    <package>com.cleveradssolutions:bigo:4.1.2.1</package>
-    <package>com.cleveradssolutions:cas:3.3.2.1</package>
-    <package>com.cleveradssolutions:cas-promo:3.3.2</package>
-    <package>com.cleveradssolutions:cas-sdk:3.3.2</package>
-    <package>com.cleveradssolutions:facebook:6.16.0.0</package>
-    <package>com.cleveradssolutions:hyprmx:6.2.0.0</package>
-    <package>com.cleveradssolutions:kidoz:8.9.9.1</package>
-    <package>com.cleveradssolutions:smaato:22.0.2.1</package>
-    <package>com.cleveradssolutions:superawesome:9.1.0.3</package>
+    <package>com.cleveradssolutions:cas-promo:3.5.0</package>
+    <package>com.cleveradssolutions:cas-sdk:3.5.0</package>
+    <package>com.cleveradssolutions:chartboost:9.5.0.2</package>
+    <package>com.cleveradssolutions:google:22.5.0.0</package>
+    <package>com.cleveradssolutions:inmobi:10.6.2.1</package>
+    <package>com.cleveradssolutions:ironsource:7.6.0.0</package>
+    <package>com.cleveradssolutions:kidoz:9.0.0.1</package>
+    <package>com.cleveradssolutions:superawesome:9.2.3.0</package>
+    <package>com.cleveradssolutions:unity:4.9.2.2</package>
+    <package>com.cleveradssolutions:vungle:7.1.0.0</package>
   </packages>
   <files />
   <settings>

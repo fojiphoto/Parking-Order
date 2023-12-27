@@ -56,6 +56,7 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CleverAdsSolutions\Editor\CASPostGenerateGradle.cs" />
     <Compile Include="Assets\CleverAdsSolutions\Editor\CASEditorSettings.cs" />
     <Compile Include="Assets\CleverAdsSolutions\Editor\ManagerIndexDrawer.cs" />
     <Compile Include="Assets\CleverAdsSolutions\Editor\CASEditorUtils.cs" />
@@ -68,17 +69,18 @@
     <Compile Include="Assets\CleverAdsSolutions\Editor\CASPostprocessBuild.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\CleverAdsSolutions\Editor\clever-ads-solutions-version-3.2.0-manifest.txt" />
+    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidChartboostDependencies.xml" />
     <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidKidozDependencies.xml" />
     <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidCrossPromotionDependencies.xml" />
+    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidIronSourceDependencies.xml" />
     <None Include="Assets\CleverAdsSolutions\Editor\CleverAdsSolutions-Editor.asmdef" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidHyprMXDependencies.xml" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidOptimalAdsDependencies.xml" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidSmaatoDependencies.xml" />
+    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidUnityAdsDependencies.xml" />
     <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidSuperAwesomeDependencies.xml" />
     <None Include="Assets\CleverAdsSolutions\Editor\CASBaseDependencies.xml" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidBigoDependencies.xml" />
-    <None Include="Assets\CleverAdsSolutions\Editor\clever-ads-solutions-version-3.2.0-manifest.txt" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidAudienceNetworkDependencies.xml" />
+    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidGoogleAdsDependencies.xml" />
+    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidLiftoffMonetizeDependencies.xml" />
+    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidInMobiDependencies.xml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -363,11 +365,11 @@
     <Reference Include="DOTweenPro">
       <HintPath>Assets\Plugins\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
     </Reference>
-    <Reference Include="Google.JarResolver">
-      <HintPath>Assets\ExternalDependencyManager\Editor\1.2.177\Google.JarResolver.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.JarResolver">
+      <HintPath>Assets\ExternalDependencyManager\Editor\1.2.177\Google.JarResolver.dll</HintPath>
     </Reference>
     <Reference Include="DemiLib">
       <HintPath>Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
@@ -387,11 +389,11 @@
     <Reference Include="DOTweenEditor">
       <HintPath>Assets\Plugins\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Burst.Unsafe">
-      <HintPath>Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.Unsafe.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Burst.Cecil.Mdb">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Unsafe">
+      <HintPath>Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>

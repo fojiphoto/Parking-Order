@@ -1115,7 +1115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Play: {fileID: 1898207536}
   PrivacyPolicy: {fileID: 1156709476}
-  PrivacyPolicy_Link: https://factorialstudio.blogspot.com/2023/01/privacy-policy.html
+  PrivacyPolicy_Link: https://orbitgamesglobal-privacy-policy.blogspot.com/
   LoadingBar: {fileID: 527655663}
   LoadingPanel: {fileID: 1149057852}
 --- !u!4 &1867088049

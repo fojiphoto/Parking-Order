@@ -19,18 +19,26 @@ namespace CAS.UEditor
     {
         #region Constants
         public const string packageName = "com.cleversolutions.ads.unity";
-        public const string androidAdmobSampleAppID = "ca-app-pub-3940256099942544~3347511713";
-        public const string iosAdmobSampleAppID = "ca-app-pub-3940256099942544~1458002511";
 
         public const string rootCASFolderPath = "Assets/CleverAdsSolutions";
         public const string editorFolderPath = rootCASFolderPath + "/Editor";
-        public const string androidLibFolderPath = "Assets/Plugins/Android/CASPlugin.androidlib";
-        public const string androidResSettingsPath = androidLibFolderPath + "/res/raw/cas_settings";
-        public const string androidLibManifestPath = androidLibFolderPath + "/AndroidManifest.xml";
-        public const string androidLibPropertiesPath = androidLibFolderPath + "/project.properties";
-        public const string androidLibNetworkConfigPath = androidLibFolderPath + "/res/xml/meta_network_security_config.xml";
 
-        public const string iosResSettingsPath = "Library/ios_cas_settings";
+        // UNITY_2021_2_OR_NEWER have minumum API 21
+        public const int targetAndroidVersion = 21;
+
+        // UNITY_2021_3_OR_NEWER have minimum iOS version 12
+        public const int targetIOSVersion = 13;
+
+        public const string gitRootURL = "https://github.com/cleveradssolutions/";
+        public const string websiteURL = "https://cas.ai";
+
+        public const string androidAdmobSampleAppID = "ca-app-pub-3940256099942544~3347511713";
+        public const string iosAdmobSampleAppID = "ca-app-pub-3940256099942544~1458002511";
+
+        internal const string androidLibName = "CASPlugin.androidlib";
+        public const string androidLibFolderPath = "Plugins/Android/" + androidLibName;
+
+        public const string configResourcesCacheRoot = "Library/";
 
         public const string promoDependency = "CrossPromotion";
 
@@ -42,12 +50,6 @@ namespace CAS.UEditor
         public const string settingsGradlePath = androidPluginsPath + "settingsTemplate.gradle";
         public const string packageManifestPath = "Packages/manifest.json";
 
-        public const int targetAndroidVersion = 21; // Disabled check for UNITY_2021_2_OR_NEWER
-        public const int targetIOSVersion = 12; // Disabled check for UNITY_2021_3_OR_NEWER
-
-        public const string gitRootURL = "https://github.com/cleveradssolutions/";
-        public const string websiteURL = "https://cleveradssolutions.com";
-
         public static System.Version minEDM4UVersion
         {
 #if UNITY_2022_2_OR_NEWER
@@ -56,6 +58,17 @@ namespace CAS.UEditor
             get { return new System.Version(1, 2, 174); }
 #endif
         }
+
+        [Obsolete("No longer used")]
+        public const string iosResSettingsPath = "Library/ios_";
+        [Obsolete("No longer used")]
+        public const string androidLibManifestPath = androidLibFolderPath + "/AndroidManifest.xml";
+        [Obsolete("No longer used")]
+        public const string androidResSettingsPath = androidLibFolderPath + "/res/raw/";
+        [Obsolete("No longer used")]
+        public const string androidLibPropertiesPath = androidLibFolderPath + "/project.properties";
+        [Obsolete("No longer used")]
+        public const string androidLibNetworkConfigPath = androidLibFolderPath + "/res/xml/meta_network_security_config.xml";
         #endregion
 
         #region Internal Constants
@@ -147,14 +160,10 @@ namespace CAS.UEditor
             }
         }
 
+        [Obsolete("Use AdRemoteConfig.GetCachePath() instead")]
         public static string GetNativeSettingsPath(BuildTarget platform, string managerId)
         {
-            if (string.IsNullOrEmpty(managerId))
-                return "";
-
-            string root = platform == BuildTarget.Android ? androidResSettingsPath : iosResSettingsPath;
-            string suffixChar = char.ToLower(managerId[managerId.Length - 1]).ToString();
-            return root + managerId.Length.ToString() + suffixChar + ".json";
+            return AdRemoteConfig.GetCachePath(platform, managerId);
         }
 
         public static CASInitSettings GetSettingsAsset(BuildTarget platform, bool create = true)
@@ -341,9 +350,7 @@ namespace CAS.UEditor
 
         public static bool IsPackageExist(string package, string manifest = null)
         {
-            if (manifest == null && File.Exists(packageManifestPath))
-                manifest = File.ReadAllText(packageManifestPath);
-            return manifest != null && manifest.Contains("\"" + package + "\"");
+            return AssetDatabase.IsValidFolder("Packages/" + package);
         }
 
         // Deprecated. Replaced with OnHeaderGUI()
@@ -563,33 +570,35 @@ namespace CAS.UEditor
             EditorGUIUtility.PingObject(asset);
         }
 
-        internal static string GetAdmobAppIdFromJson(string json)
+        internal static string GetPackagePathOrNull(string package)
         {
-            return JsonUtility.FromJson<AdmobAppIdData>(json).admob_app_id;
+            var path = "Packages/" + package;
+            if (AssetDatabase.IsValidFolder(path))
+                return path;
+            return null;
         }
 
         internal static string GetTemplatePath(string templateFile)
         {
-            string templateFolder = "/Templates/" + templateFile;
-            string path = "Packages/" + packageName + templateFolder;
+            return GetPluginComponentPath("Templates/" + templateFile);
+        }
+
+        internal static string GetPluginComponentPath(string file)
+        {
+            string path = Path.Combine("Packages/" + packageName, file);
             if (!File.Exists(path))
             {
-                path = rootCASFolderPath + templateFolder;
+                path = Path.Combine(rootCASFolderPath, file);
                 if (!File.Exists(path))
                 {
-                    Debug.LogError(logTag + "Template " + templateFile + " file not found. Try reimport CAS package.");
+                    Debug.LogError(logTag + file + " file not found. Try reimport CAS.AI Unity Package.");
                     return null;
                 }
             }
-            return path;
+            return Path.GetFullPath(path);
         }
 
         internal static void WriteToAsset(string path, params string[] data)
-        {
-            WriteToAsset(path, true, data);
-        }
-
-        internal static void WriteToAsset(string path, bool overwrite, params string[] data)
         {
             if (data.Length == 0)
                 return;
@@ -597,7 +606,6 @@ namespace CAS.UEditor
             {
                 var fullPath = Path.GetFullPath(path);
                 var fileExists = File.Exists(path);
-                if (!overwrite && fileExists) return;
 
                 if (!fileExists)
                 {
@@ -610,25 +618,7 @@ namespace CAS.UEditor
                     File.WriteAllText(fullPath, data[0]);
                 else
                     File.WriteAllLines(fullPath, data);
-                if (Application.platform == RuntimePlatform.OSXEditor)
-                    File.SetLastWriteTime(fullPath, System.DateTime.Now);
 
-
-#if UNITY_2021_3_OR_NEWER || CASDeveloper
-                // Known issue with an infinite import loop
-                // Unity 2021.3 has changed the .androidlib import to be a single asset
-                // instead of a folder of multiple assets.
-                // Error message:
-                /**
-                 * An infinite import loop has been detected. 
-                 * The following Assets were imported multiple times, 
-                 * but no changes to them have been detected. 
-                 * Please check if any custom code is trying to import them:
-                 * Assets/Plugins/Android/CASPlugin.androidlib
-                 */
-                if (path.StartsWith(androidLibFolderPath))
-                    fileExists = true;
-#endif
                 if (!fileExists)
                     AssetDatabase.ImportAsset(path);
             }
@@ -644,7 +634,7 @@ namespace CAS.UEditor
                 StopBuildWithMessage("Cancel build: " + message, target);
         }
 
-        internal static void StopBuildWithMessage(string message, BuildTarget target)
+        internal static void StopBuildWithMessage(string message, BuildTarget target = BuildTarget.NoTarget)
         {
             EditorUtility.ClearProgressBar();
             if (target != BuildTarget.NoTarget
@@ -663,35 +653,13 @@ namespace CAS.UEditor
 #endif
         }
 
-        internal static string SelectSettingsFileAndGetAppId(string managerID, BuildTarget platform)
-        {
-            string filePath = "";
-            try
-            {
-                filePath = EditorUtility.OpenFilePanelWithFilters(
-                   "Select CAS Settings file for build", "", new[] { "Settings file", "json" });
-                if (!string.IsNullOrEmpty(filePath))
-                {
-                    var content = File.ReadAllText(filePath);
-                    WriteToAsset(GetNativeSettingsPath(platform, managerID), content);
-                    return GetAdmobAppIdFromJson(content);
-                }
-            }
-            catch (Exception e)
-            {
-                Debug.LogException(e);
-            }
-            StopBuildWithMessage("Selected wrong settings file: " + filePath, BuildTarget.NoTarget);
-            return null;
-        }
-
         internal static void GetCrossPromoAlias(BuildTarget platform, string managerId, HashSet<string> result)
         {
             if (!IsDependencyExists(promoDependency, platform))
                 return;
 
             string pattern = "alias\\\": \\\""; //: "iOSBundle\\\": \\\"";
-            string cachePath = Path.GetFullPath(GetNativeSettingsPath(platform, managerId));
+            string cachePath = AdRemoteConfig.GetCachePath(platform, managerId);
 
             if (File.Exists(cachePath))
             {
@@ -724,7 +692,7 @@ namespace CAS.UEditor
                 try
                 {
                     var content = response.ReadContent();
-                    if (content != null)
+                    if (!string.IsNullOrEmpty(content))
                         remoteVersion = JsonUtility.FromJson<GitVersionInfo>(content).tag_name;
                 }
                 catch (Exception e)
@@ -839,9 +807,107 @@ namespace CAS.UEditor
     }
 
     [Serializable]
-    internal class AdmobAppIdData
+    internal class AdRemoteConfig
     {
         public string admob_app_id = null;
+
+        private string sourceJson = null;
+
+        internal bool IsValid(bool appIdRequired = true)
+        {
+            if (sourceJson == null) return false;
+            return !appIdRequired || (admob_app_id != null && admob_app_id.IndexOf('~') > 0);
+        }
+
+        internal void Save(string path)
+        {
+            if (sourceJson == null) return;
+            File.WriteAllText(path, sourceJson);
+            if (Application.platform == RuntimePlatform.OSXEditor)
+                File.SetLastWriteTime(path, System.DateTime.Now);
+        }
+
+        internal static string GetFileSuffix(string casId)
+        {
+            string suffixChar = char.ToLower(casId[casId.Length - 1]).ToString();
+            return casId.Length.ToString() + suffixChar;
+        }
+
+        internal static string GetResourcesFileName(string casId)
+        {
+            return "cas_settings" + GetFileSuffix(casId) + ".json";
+        }
+
+        internal static string GetCachePath(BuildTarget platform, string casId)
+        {
+            if (string.IsNullOrEmpty(casId))
+                return "";
+
+            var fileName = "cas_config_" + platform.ToString() + "_" + GetFileSuffix(casId) + ".json";
+            return Path.GetFullPath(Path.Combine(CASEditorUtils.configResourcesCacheRoot, fileName));
+        }
+
+        internal static AdRemoteConfig ReadFor(BuildTarget platform, string casId)
+        {
+            return ReadFromFile(GetCachePath(platform, casId));
+        }
+
+        internal static AdRemoteConfig ReadFromFile(string path)
+        {
+            try
+            {
+                if (File.Exists(path))
+                    return ReadFromJson(File.ReadAllText(path));
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning(CASEditorUtils.logTag + "Read AdRemoteConfig failed: " + e.ToString());
+            }
+            return new AdRemoteConfig();
+        }
+
+        internal static AdRemoteConfig ReadFromJson(string json)
+        {
+            try
+            {
+                var result = JsonUtility.FromJson<AdRemoteConfig>(json);
+                if (result != null)
+                {
+                    result.sourceJson = json;
+                    return result;
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning(CASEditorUtils.logTag + "Read AdRemoteConfig failed: " + e.ToString());
+            }
+            return new AdRemoteConfig();
+        }
+
+        internal static string FindGADAppId(CASInitSettings settings, DependencyManager depManager)
+        {
+            if (!settings) return null;
+
+            bool appIdRequired = !settings.IsTestAdMode()
+                    && depManager.Find(AdNetwork.GoogleAds).IsInstalled();
+
+            string googleAppId = null;
+            if (settings.managersCount > 0)
+            {
+                var config = ReadFor(depManager.buildTarget, settings.GetManagerId(0));
+                if (config.IsValid(appIdRequired))
+                    googleAppId = config.admob_app_id;
+                else if (appIdRequired)
+                    Debug.LogWarning(CASEditorUtils.logTag + "Remote config is invalid for: " + settings.GetManagerId(0));
+            }
+            if (string.IsNullOrEmpty(googleAppId) && settings.IsTestAdMode())
+            {
+                if (depManager.buildTarget == BuildTarget.Android)
+                    return CASEditorUtils.androidAdmobSampleAppID;
+                return CASEditorUtils.iosAdmobSampleAppID;
+            }
+            return googleAppId;
+        }
     }
 
     [Serializable]
@@ -1051,7 +1117,11 @@ namespace CAS.UEditor
 
         public string ReadContent()
         {
-            return isDone ? downloadHandler.text.Trim() : null;
+            if (isDone && responseCode == 200)
+            {
+                return downloadHandler.text.Trim();
+            }
+            return null;
         }
 
         private void Prepare()

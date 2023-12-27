@@ -6,19 +6,10 @@
             url "https://maven.google.com"
         }
         maven {
-            url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" // Assets/CleverAdsSolutions/Editor/CASAndroidOptimalAdsDependencies.xml:9
+            url "https://cboost.jfrog.io/artifactory/chartboost-ads/" // Assets/CleverAdsSolutions/Editor/CASAndroidChartboostDependencies.xml:6
         }
         maven {
-            url "https://artifact.bytedance.com/repository/pangle" // Assets/CleverAdsSolutions/Editor/CASAndroidOptimalAdsDependencies.xml:9
-        }
-        maven {
-            url "https://android-sdk.is.com/" // Assets/CleverAdsSolutions/Editor/CASAndroidOptimalAdsDependencies.xml:9
-        }
-        maven {
-            url "https://cboost.jfrog.io/artifactory/chartboost-ads/" // Assets/CleverAdsSolutions/Editor/CASAndroidOptimalAdsDependencies.xml:9
-        }
-        maven {
-            url "https://s3.amazonaws.com/smaato-sdk-releases/" // Assets/CleverAdsSolutions/Editor/CASAndroidSmaatoDependencies.xml:6
+            url "https://android-sdk.is.com/" // Assets/CleverAdsSolutions/Editor/CASAndroidIronSourceDependencies.xml:6
         }
         maven {
             url "https://aa-sdk.s3-eu-west-1.amazonaws.com/android_repo" // Assets/CleverAdsSolutions/Editor/CASAndroidSuperAwesomeDependencies.xml:6
@@ -34,15 +25,16 @@ apply plugin: 'com.android.library'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 // Android Resolver Dependencies Start
-    implementation 'com.cleveradssolutions:bigo:4.1.2.1' // Assets/CleverAdsSolutions/Editor/CASAndroidBigoDependencies.xml:4
-    implementation 'com.cleveradssolutions:cas:3.3.2.1' // Assets/CleverAdsSolutions/Editor/CASAndroidOptimalAdsDependencies.xml:10
-    implementation 'com.cleveradssolutions:cas-promo:3.3.2' // Assets/CleverAdsSolutions/Editor/CASAndroidCrossPromotionDependencies.xml:4
-    implementation 'com.cleveradssolutions:cas-sdk:3.3.2' // Assets/CleverAdsSolutions/Editor/CASBaseDependencies.xml:4
-    implementation 'com.cleveradssolutions:facebook:6.16.0.0' // Assets/CleverAdsSolutions/Editor/CASAndroidAudienceNetworkDependencies.xml:4
-    implementation 'com.cleveradssolutions:hyprmx:6.2.0.0' // Assets/CleverAdsSolutions/Editor/CASAndroidHyprMXDependencies.xml:4
-    implementation 'com.cleveradssolutions:kidoz:8.9.9.1' // Assets/CleverAdsSolutions/Editor/CASAndroidKidozDependencies.xml:4
-    implementation 'com.cleveradssolutions:smaato:22.0.2.1' // Assets/CleverAdsSolutions/Editor/CASAndroidSmaatoDependencies.xml:7
-    implementation 'com.cleveradssolutions:superawesome:9.1.0.3' // Assets/CleverAdsSolutions/Editor/CASAndroidSuperAwesomeDependencies.xml:7
+    implementation 'com.cleveradssolutions:cas-promo:3.5.0' // Assets/CleverAdsSolutions/Editor/CASAndroidCrossPromotionDependencies.xml:4
+    implementation 'com.cleveradssolutions:cas-sdk:3.5.0' // Assets/CleverAdsSolutions/Editor/CASBaseDependencies.xml:4
+    implementation 'com.cleveradssolutions:chartboost:9.5.0.2' // Assets/CleverAdsSolutions/Editor/CASAndroidChartboostDependencies.xml:7
+    implementation 'com.cleveradssolutions:google:22.5.0.0' // Assets/CleverAdsSolutions/Editor/CASAndroidGoogleAdsDependencies.xml:4
+    implementation 'com.cleveradssolutions:inmobi:10.6.2.1' // Assets/CleverAdsSolutions/Editor/CASAndroidInMobiDependencies.xml:4
+    implementation 'com.cleveradssolutions:ironsource:7.6.0.0' // Assets/CleverAdsSolutions/Editor/CASAndroidIronSourceDependencies.xml:7
+    implementation 'com.cleveradssolutions:kidoz:9.0.0.1' // Assets/CleverAdsSolutions/Editor/CASAndroidKidozDependencies.xml:4
+    implementation 'com.cleveradssolutions:superawesome:9.2.3.0' // Assets/CleverAdsSolutions/Editor/CASAndroidSuperAwesomeDependencies.xml:7
+    implementation 'com.cleveradssolutions:unity:4.9.2.2' // Assets/CleverAdsSolutions/Editor/CASAndroidUnityAdsDependencies.xml:4
+    implementation 'com.cleveradssolutions:vungle:7.1.0.0' // Assets/CleverAdsSolutions/Editor/CASAndroidLiftoffMonetizeDependencies.xml:4
 // Android Resolver Dependencies End
 **DEPS**}
 

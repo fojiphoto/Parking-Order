@@ -12,13 +12,6 @@ namespace CAS.Android
 {
     internal class CASSettingsClient : IAdsSettings, ITargetingOptions
     {
-        private bool _isDebugMode = false;
-        private bool _isMutedAdSounds = false;
-        private bool _allowInterstitialAdsWhenVideoCostAreLower = true;
-
-        private Gender _gender = Gender.Unknown;
-        private int _age = 0;
-
         private AndroidJavaClass settingsBridge;
 
         public CASSettingsClient()
@@ -47,6 +40,12 @@ namespace CAS.Android
         }
 
         public bool analyticsCollectionEnabled { get; set; }
+
+        public int trialAdFreeInterval
+        {
+            get { return settingsBridge.CallStatic<int>("getTrialAdFreeInterval"); }
+            set { settingsBridge.CallStatic("setTrialAdFreeInterval", value); }
+        }
 
         public int bannerRefreshInterval
         {
@@ -80,22 +79,14 @@ namespace CAS.Android
 
         public bool isDebugMode
         {
-            get { return _isDebugMode; }
-            set
-            {
-                _isDebugMode = value;
-                settingsBridge.CallStatic("setNativeDebug", value);
-            }
+            get { return settingsBridge.CallStatic<bool>("getNativeDebug"); ; }
+            set { settingsBridge.CallStatic("setNativeDebug", value); }
         }
 
         public bool isMutedAdSounds
         {
-            get { return _isMutedAdSounds; }
-            set
-            {
-                _isMutedAdSounds = value;
-                settingsBridge.CallStatic("setMutedAdSounds", value);
-            }
+            get { return settingsBridge.CallStatic<bool>("getMutedAdSounds"); ; }
+            set { settingsBridge.CallStatic("setMutedAdSounds", value); }
         }
 
         public LoadingManagerMode loadingMode
@@ -138,31 +129,34 @@ namespace CAS.Android
 
         public bool allowInterstitialAdsWhenVideoCostAreLower
         {
-            get { return _allowInterstitialAdsWhenVideoCostAreLower; }
-            set
-            {
-                _allowInterstitialAdsWhenVideoCostAreLower = value;
-                settingsBridge.CallStatic("allowInterInsteadOfRewarded", value);
-            }
+            get { return settingsBridge.CallStatic<bool>("isAllowInterInsteadOfRewarded"); }
+            set { settingsBridge.CallStatic("allowInterInsteadOfRewarded", value); }
         }
 
         public Gender gender
         {
-            get { return _gender; }
-            set
-            {
-                _gender = value;
-                settingsBridge.CallStatic("setUserGender", (int)value);
-            }
+            get { return (Gender)settingsBridge.CallStatic<int>("getUserGender"); }
+            set { settingsBridge.CallStatic("setUserGender", (int)value); }
         }
 
         public int age
         {
-            get { return _age; }
-            set
+            get { return settingsBridge.CallStatic<int>("getUserAge"); }
+            set { settingsBridge.CallStatic("setUserAge", value); }
+        }
+
+        public string contentURL
+        {
+            get { return settingsBridge.CallStatic<string>("getContentURL"); }
+            set { settingsBridge.CallStatic("setContentURL", value); }
+        }
+
+        public void SetKeywords(IList<string> keywords)
+        {
+            settingsBridge.CallStatic("clearKeywords");
+            for (int i = 0; i < keywords.Count; i++)
             {
-                _age = value;
-                settingsBridge.CallStatic("setUserAge", value);
+                settingsBridge.CallStatic("addKeyword", keywords[i]);
             }
         }
     }
