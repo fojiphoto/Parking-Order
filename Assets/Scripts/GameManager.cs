@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager gameManagerInstance;
     public int countTracks,numberOfMoves;
     public bool victorybool, losebool;
-    [SerializeField] Text TotalCount_Text;
+    [SerializeField] Text TotalCount_Text,level_text;
     [SerializeField] LevelData LevelData;
     [SerializeField] GameObject LevelFailPanel, LevelCompletePanel, PausePanel;
 
@@ -21,10 +21,14 @@ public class GameManager : MonoBehaviour
     [Header("Fail Panel Btns")]
     [SerializeField] Button f_Restart_Btn, f_Home_Btn;
     [Header("Pause Panel Btns")]
-    [SerializeField] Button P_Restart_Btn, P_Home_Btn,P_Resume_Btn;
+    [SerializeField] Button P_Restart_Btn, P_Home_Btn,P_Resume_Btn,P_Skip_Btn;
+
+    
 
     void Start()
     {
+        int lvl = PlayerPrefsManager.Get(PlayerPrefsManager.CurrentLevel, 0);
+        level_text.text = "Level " + (lvl+1);
         if (gameManagerInstance == null)
             gameManagerInstance = this;
 
@@ -46,6 +50,7 @@ public class GameManager : MonoBehaviour
         P_Resume_Btn.onClick.AddListener(Resume);
         P_Home_Btn.onClick.AddListener(Home);
         P_Restart_Btn.onClick.AddListener(Restart);
+        P_Skip_Btn.onClick.AddListener(skip);
 
         f_Home_Btn.onClick.AddListener(Home);
         f_Restart_Btn.onClick.AddListener(Restart);
@@ -91,7 +96,18 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene("GamePlay");
     }
-
+    public void skip()
+    {
+        CASAds.instance?.ShowRewarded(reward);
+    }
+    void reward()
+    {
+        int lvl = PlayerPrefsManager.Get(PlayerPrefsManager.CurrentLevel, 0);
+        lvl++;
+        LevelManager.CurrentLevel = lvl;
+        PlayerPrefsManager.Set(PlayerPrefsManager.CurrentLevel, lvl);
+        SceneManager.LoadScene("GamePlay");
+    }
     public void Victory()
     {
         if (countTracks.Equals(0) && !losebool)
