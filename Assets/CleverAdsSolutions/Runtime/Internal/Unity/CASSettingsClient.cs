@@ -13,6 +13,7 @@ namespace CAS.Unity
     internal class CASSettingsClient : IAdsSettings, ITargetingOptions
     {
         public bool analyticsCollectionEnabled { get; set; }
+        public int trialAdFreeInterval { get; set; }
         public int bannerRefreshInterval { get; set; }
         public int interstitialInterval { get; set; }
         public ConsentStatus userConsent { get; set; }
@@ -27,6 +28,8 @@ namespace CAS.Unity
 
         public Gender gender { get; set; }
         public int age { get; set; }
+        public string contentURL { get; set; }
+
 
         public float lastInterImpressionTimestamp = float.MinValue;
 
@@ -51,5 +54,6 @@ namespace CAS.Unity
             set { CASFactory.SetExecuteEventsOnUnityThread(value); }
         }
 
+        public void SetKeywords(IList<string> keywords) { }
     }
 }
