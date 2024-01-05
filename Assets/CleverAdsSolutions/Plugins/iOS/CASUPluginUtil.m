@@ -7,7 +7,6 @@
 
 #import "CASUPluginUtil.h"
 #import "UnityInterface.h"
-#import <AVFoundation/AVFoundation.h>
 
 @interface CASUPluginUtil ()
 /// References to objects Google Mobile ads objects created from Unity.
@@ -77,7 +76,6 @@ static BOOL _pauseOnBackground = YES;
 + (void)onAdsDidClosed {
     if (UnityIsPaused()) {
         UnityPause(NO);
-        UnityUpdateMuteState([[AVAudioSession sharedInstance] outputVolume] < 0.01f ? 1 : 0);
     }
 }
 

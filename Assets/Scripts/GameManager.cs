@@ -28,8 +28,6 @@ public class GameManager : MonoBehaviour
         if (gameManagerInstance == null)
             gameManagerInstance = this;
 
-        AudioManager.instance?.SetMasterVolume(0.3f);
-
         countTracks = GameObject.FindGameObjectsWithTag("path").Length;
 
         numberOfMoves = LevelData.LvlData[LevelManager.CurrentLevel].NumberofMoves;
@@ -57,17 +55,15 @@ public class GameManager : MonoBehaviour
     {
         //AdsManager.instance.ShowInterstitialWithoutConditions();
         CASAds.instance.ShowInterstitial();
-        AudioManager.instance?.SetMasterVolume(0);
+
         PausePanel.SetActive(true);
     }
 
     public void Restart()
     {
-        AudioManager.instance?.SetMasterVolume(1);
-
-        // AdsManager.instance.ShowInterstitialWithoutConditions();
+       // AdsManager.instance.ShowInterstitialWithoutConditions();
         CASAds.instance.ShowInterstitial();
-        AudioManager.instance?.Click();
+
         SceneManager.LoadScene("GamePlay");
         int lvl = PlayerPrefsManager.Get(PlayerPrefsManager.CurrentLevel, 0);
         if (victorybool)
@@ -78,10 +74,7 @@ public class GameManager : MonoBehaviour
 
     public void Home()
     {
-        AudioManager.instance?.Click();
-        AudioManager.instance?.SetMasterVolume(1);
-
-        // AdsManager.instance.ShowInterstitialWithoutConditions();
+       // AdsManager.instance.ShowInterstitialWithoutConditions();
         CASAds.instance.ShowInterstitial();
 
         SceneManager.LoadScene("MainMenu");
@@ -89,15 +82,13 @@ public class GameManager : MonoBehaviour
 
     public void Resume()
     {
-        AudioManager.instance?.SetMasterVolume(1);
-        AudioManager.instance?.Click();
         PausePanel.SetActive(false);
     }
 
     public void Next()
     {
         //AdsManager.instance.ShowInterstitialWithoutConditions();
-        AudioManager.instance?.Click();
+
         SceneManager.LoadScene("GamePlay");
     }
 
@@ -114,7 +105,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefsManager.Set(PlayerPrefsManager.CurrentLevel, lvl);
             //AdsManager.instance.ShowInterstitialWithoutConditions();
             CASAds.instance.ShowInterstitial();
-            AudioManager.instance?.PlaySoundEffect(AudioManager.instance?.soundEffects[1]);
+
         }
     }
 
@@ -129,7 +120,6 @@ public class GameManager : MonoBehaviour
             //AdsManager.instance.ShowInterstitialWithoutConditions();
             CASAds.instance.ShowInterstitial();
 
-            AudioManager.instance?.PlaySoundEffect(AudioManager.instance?.soundEffects[2]);
 
         }
     }

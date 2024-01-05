@@ -9,10 +9,10 @@ public class Splash : MonoBehaviour
 {
     [SerializeField] Image LoadingBar;
     // Start is called before the first frame update
-    void Start() 
+    public void SwitchScene() 
     {
         LoadingBar.fillAmount = 0;
-        LoadingBar.DOFillAmount(1, 12).OnComplete(() =>
+        LoadingBar.DOFillAmount(1, 5).OnComplete(() =>
         {
             //AdsManager.instance.ShowBanner();
                 SceneManager.LoadScene("MainMenu");

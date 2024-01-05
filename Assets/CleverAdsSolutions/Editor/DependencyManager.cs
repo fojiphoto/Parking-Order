@@ -106,7 +106,7 @@ namespace CAS.UEditor
             return null;
         }
 
-        public void UpdateDependencies()
+        public void UpdateDependencies(BuildTarget platform)
         {
             for (int i = 0; i < solutions.Length; i++)
             {
@@ -119,12 +119,6 @@ namespace CAS.UEditor
                 if (adapters[i].isNewer)
                     adapters[i].ActivateDependencies(platform, this);
             }
-        }
-
-        [Obsolete("Use UpdateDependencies() without build target instead")]
-        public void UpdateDependencies(BuildTarget platform)
-        {
-            UpdateDependencies();
         }
 
         public string GetInstalledVersion()
