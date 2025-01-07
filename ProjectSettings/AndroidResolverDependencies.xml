@@ -11,7 +11,6 @@
     <package>com.google.android.gms:play-services-appset:16.0.2</package>
     <package>com.google.android.gms:play-services-base:16.1.0</package>
     <package>com.google.android.instantapps:instantapps:1.1.0</package>
-    <package>com.google.android.ump:user-messaging-platform:2.+</package>
   </packages>
   <files />
   <settings>

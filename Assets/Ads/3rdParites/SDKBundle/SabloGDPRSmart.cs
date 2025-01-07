@@ -10,7 +10,8 @@ public class SabloGDPRSmart : MonoBehaviour
 
     private void Start()
     {
-        if(!agreeTermsPanel.activeSelf)
+        
+        if (!agreeTermsPanel.activeSelf)
             agreeTermsPanel.SetActive(true);
         
         if(dontAgreeTermsPanel.activeSelf)
@@ -25,6 +26,7 @@ public class SabloGDPRSmart : MonoBehaviour
     {
         Debug.Log("GDPR accepted, lets run game");
         AdsManager.instance.GDPRPopupAccepted();
+        Splash.instance.SwitchScene();
         //TapticManager.Impact(ImpactFeedback.Light);
         Time.timeScale = 1;
         Destroy(gameObject);

@@ -55,12 +55,13 @@ public class AdsManager : MonoBehaviour
                 // Show user consent dialog
                 print("FS Max show gdpr dialog");
                 print("its a gdpr zone");
-                
+
 
 #if UNITY_IO
                 if (Preferences.Instance.Gdpr_accepted == 1)
                 {
                     ShowPopUp();
+                    Splash.instance.SwitchScene();
                 } 
                 else
                 {
@@ -72,6 +73,7 @@ public class AdsManager : MonoBehaviour
 #else
                 if (Gdpr_accepted == 1)
                 {
+                    Splash.instance.SwitchScene();
                     ShowPopUp();
                 } 
                 else
@@ -79,6 +81,7 @@ public class AdsManager : MonoBehaviour
                     gdprChecking = true;
                     var gdprPrefab = Resources.Load("GDPR/GDPRCanvasSmart") as GameObject;
                     Instantiate(gdprPrefab);
+                    Splash.instance.SwitchScene();
                     Time.timeScale = 0;
                 }
 #endif
@@ -88,6 +91,7 @@ public class AdsManager : MonoBehaviour
                 // No need to show consent dialog, proceed with initialization
                 print("FS Max gdpr concent does not apply, Loading next scene");
                 Gdpr_accepted = 1;
+                Splash.instance.SwitchScene();
                 PlayerPrefs.Save();
                 ShowPopUp();
             }
@@ -96,6 +100,7 @@ public class AdsManager : MonoBehaviour
                 // Consent dialog state is unknown. Proceed with initialization, but check if the consent
                 // dialog should be shown on the next application initialization
                 print("GDPR Consent dialog state is unknown, but will check later , Loading next scene");
+                
                 ShowPopUp();
             }
         };
