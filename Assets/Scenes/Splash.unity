@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1069,7 +1069,7 @@ GameObject:
   - component: {fileID: 1751651791}
   - component: {fileID: 1751651792}
   m_Layer: 0
-  m_Name: Max
+  m_Name: AdsManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1099,9 +1099,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1751651789}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a038c09b3569d824e99018f8c34b1059, type: 3}
+  m_Script: {fileID: 11500000, guid: 963c238440881a347b971e9a6a5b5b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InterstitialAdUnitIdGeneric: 9b33deb1adbf9faa
+  RewardedAdUnitIdGeneric: b6795dbd6a721b13
+  BannerAdUnitId: 213febed6c4d246d
+  AppOpenAdUnitId: 
+  RecID: c5982c80de8ce8ef
+  isBannerShowing: 0
+  _isAdLoaded: 0
+  rVShownTime: 0
+  appOpenTimeDelay: 30
+  isAppOpenShowing: 0
+  isApOpenLoaded: 0
+  interstitialPlacement: level_up
+  isInterstitialLoaded: 0
+  isAdShowing: 0
 --- !u!1 &1785014901
 GameObject:
   m_ObjectHideFlags: 0

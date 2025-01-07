@@ -6,22 +6,13 @@
             url "https://maven.google.com"
         }
         maven {
-            url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" // Assets/CleverAdsSolutions/Editor/CASAndroidOptimalAdsDependencies.xml:9
+            url "https://cboost.jfrog.io/artifactory/chartboost-ads/" // Assets/MaxSdk/Mediation/Chartboost/Editor/Dependencies.xml:8
         }
         maven {
-            url "https://artifact.bytedance.com/repository/pangle" // Assets/CleverAdsSolutions/Editor/CASAndroidOptimalAdsDependencies.xml:9
+            url "https://android-sdk.is.com/" // Assets/MaxSdk/Mediation/IronSource/Editor/Dependencies.xml:8
         }
         maven {
-            url "https://android-sdk.is.com/" // Assets/CleverAdsSolutions/Editor/CASAndroidOptimalAdsDependencies.xml:9
-        }
-        maven {
-            url "https://cboost.jfrog.io/artifactory/chartboost-ads/" // Assets/CleverAdsSolutions/Editor/CASAndroidOptimalAdsDependencies.xml:9
-        }
-        maven {
-            url "https://s3.amazonaws.com/smaato-sdk-releases/" // Assets/CleverAdsSolutions/Editor/CASAndroidSmaatoDependencies.xml:6
-        }
-        maven {
-            url "https://aa-sdk.s3-eu-west-1.amazonaws.com/android_repo" // Assets/CleverAdsSolutions/Editor/CASAndroidSuperAwesomeDependencies.xml:6
+            url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" // Assets/MaxSdk/Mediation/Mintegral/Editor/Dependencies.xml:8
         }
         mavenLocal()
         mavenCentral()
@@ -34,15 +25,18 @@ apply plugin: 'com.android.library'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 // Android Resolver Dependencies Start
-    implementation 'com.cleveradssolutions:bigo:4.1.2.1' // Assets/CleverAdsSolutions/Editor/CASAndroidBigoDependencies.xml:4
-    implementation 'com.cleveradssolutions:cas:3.3.2.1' // Assets/CleverAdsSolutions/Editor/CASAndroidOptimalAdsDependencies.xml:10
-    implementation 'com.cleveradssolutions:cas-promo:3.3.2' // Assets/CleverAdsSolutions/Editor/CASAndroidCrossPromotionDependencies.xml:4
-    implementation 'com.cleveradssolutions:cas-sdk:3.3.2' // Assets/CleverAdsSolutions/Editor/CASBaseDependencies.xml:4
-    implementation 'com.cleveradssolutions:facebook:6.16.0.0' // Assets/CleverAdsSolutions/Editor/CASAndroidAudienceNetworkDependencies.xml:4
-    implementation 'com.cleveradssolutions:hyprmx:6.2.0.0' // Assets/CleverAdsSolutions/Editor/CASAndroidHyprMXDependencies.xml:4
-    implementation 'com.cleveradssolutions:kidoz:8.9.9.1' // Assets/CleverAdsSolutions/Editor/CASAndroidKidozDependencies.xml:4
-    implementation 'com.cleveradssolutions:smaato:22.0.2.1' // Assets/CleverAdsSolutions/Editor/CASAndroidSmaatoDependencies.xml:7
-    implementation 'com.cleveradssolutions:superawesome:9.1.0.3' // Assets/CleverAdsSolutions/Editor/CASAndroidSuperAwesomeDependencies.xml:7
+    implementation 'androidx.recyclerview:recyclerview:1.2.1' // Assets/MaxSdk/Mediation/Mintegral/Editor/Dependencies.xml:9
+    implementation 'com.applovin.mediation:chartboost-adapter:9.7.0.3' // Assets/MaxSdk/Mediation/Chartboost/Editor/Dependencies.xml:8
+    implementation 'com.applovin.mediation:fyber-adapter:8.3.3.0' // Assets/MaxSdk/Mediation/Fyber/Editor/Dependencies.xml:4
+    implementation 'com.applovin.mediation:ironsource-adapter:8.5.0.0.0' // Assets/MaxSdk/Mediation/IronSource/Editor/Dependencies.xml:8
+    implementation 'com.applovin.mediation:mintegral-adapter:16.8.91.0' // Assets/MaxSdk/Mediation/Mintegral/Editor/Dependencies.xml:8
+    implementation 'com.applovin.mediation:unityads-adapter:4.12.5.0' // Assets/MaxSdk/Mediation/UnityAds/Editor/Dependencies.xml:4
+    implementation 'com.applovin.mediation:vungle-adapter:7.4.2.1' // Assets/MaxSdk/Mediation/Vungle/Editor/Dependencies.xml:4
+    implementation 'com.applovin:applovin-sdk:13.0.0' // Assets/MaxSdk/AppLovin/Editor/Dependencies.xml:4
+    implementation 'com.google.android.gms:play-services-appset:16.0.2' // Assets/GameAnalytics/Editor/Android/Dependencies.xml:4
+    implementation 'com.google.android.gms:play-services-base:16.1.0' // Assets/MaxSdk/Mediation/Chartboost/Editor/Dependencies.xml:9
+    implementation 'com.google.android.instantapps:instantapps:1.1.0' // Assets/GameAnalytics/Editor/Android/Dependencies.xml:3
+    implementation 'com.google.android.ump:user-messaging-platform:2.+' // Assets/MaxSdk/AppLovin/Editor/Dependencies.xml:5
 // Android Resolver Dependencies End
 **DEPS**}
 

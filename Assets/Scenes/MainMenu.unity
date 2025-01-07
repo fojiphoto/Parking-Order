@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1102,7 +1102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Play: {fileID: 1898207536}
   PrivacyPolicy: {fileID: 1156709476}
-  PrivacyPolicy_Link: https://factorialstudio.blogspot.com/2023/01/privacy-policy.html
+  PrivacyPolicy_Link: https://cbgprivacypolicy.blogspot.com/2023/02/privacy-policy.html
   LoadingBar: {fileID: 527655663}
   LoadingPanel: {fileID: 1149057852}
 --- !u!4 &1867088049

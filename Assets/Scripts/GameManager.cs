@@ -58,16 +58,16 @@ public class GameManager : MonoBehaviour
 
     private void Pause()
     {
-        //AdsManager.instance.ShowInterstitialWithoutConditions();
-        CASAds.instance.ShowInterstitial();
+          AdsManager.instance.ShowInterstitialWithoutConditions("");
+        //CASAds.instance.ShowInterstitial();
 
         PausePanel.SetActive(true);
     }
 
     public void Restart()
     {
-       // AdsManager.instance.ShowInterstitialWithoutConditions();
-        CASAds.instance.ShowInterstitial();
+        AdsManager.instance.ShowInterstitialWithoutConditions("");
+       // CASAds.instance.ShowInterstitial();
 
         SceneManager.LoadScene("GamePlay");
         int lvl = PlayerPrefsManager.Get(PlayerPrefsManager.CurrentLevel, 0);
@@ -79,8 +79,8 @@ public class GameManager : MonoBehaviour
 
     public void Home()
     {
-       // AdsManager.instance.ShowInterstitialWithoutConditions();
-        CASAds.instance.ShowInterstitial();
+         AdsManager.instance.ShowInterstitialWithoutConditions("");
+        //CASAds.instance.ShowInterstitial();
 
         SceneManager.LoadScene("MainMenu");
     }
@@ -98,7 +98,8 @@ public class GameManager : MonoBehaviour
     }
     public void skip()
     {
-        CASAds.instance?.ShowRewarded(reward);
+         //CASAds.instance?.ShowRewarded(reward);
+         AdsManager.instance.ShowRewardedAd(reward);
     }
     void reward()
     {
@@ -119,8 +120,8 @@ public class GameManager : MonoBehaviour
             lvl++;
             LevelManager.CurrentLevel = lvl;
             PlayerPrefsManager.Set(PlayerPrefsManager.CurrentLevel, lvl);
-            //AdsManager.instance.ShowInterstitialWithoutConditions();
-            CASAds.instance.ShowInterstitial();
+            AdsManager.instance.ShowInterstitialWithoutConditions("");
+            //CASAds.instance.ShowInterstitial();
 
         }
     }
@@ -133,8 +134,8 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("You Lose!");
             LevelFailPanel.SetActive(true);
-            //AdsManager.instance.ShowInterstitialWithoutConditions();
-            CASAds.instance.ShowInterstitial();
+            AdsManager.instance.ShowInterstitialWithoutConditions("");
+            //CASAds.instance.ShowInterstitial();
 
 
         }
