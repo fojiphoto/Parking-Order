@@ -18,24 +18,6 @@ dependencyResolutionManagement {
         mavenCentral()
 // Android Resolver Repos Start
         def unityProjectPath = $/file:///**DIR_UNITYPROJECT**/$.replace("\\", "/")
-        maven {
-            url "https://cboost.jfrog.io/artifactory/chartboost-ads/" // Assets/CleverAdsSolutions/Editor/CASAndroidChartboostDependencies.xml:6
-        }
-        maven {
-            url "https://android-sdk.is.com/" // Assets/CleverAdsSolutions/Editor/CASAndroidIronSourceDependencies.xml:6
-        }
-        maven {
-            url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" // Assets/CleverAdsSolutions/Editor/CASAndroidMintegralDependencies.xml:6
-        }
-        maven {
-            url "https://artifact.bytedance.com/repository/pangle" // Assets/CleverAdsSolutions/Editor/CASAndroidPangleDependencies.xml:6
-        }
-        maven {
-            url "https://s3.amazonaws.com/smaato-sdk-releases/" // Assets/CleverAdsSolutions/Editor/CASAndroidSmaatoDependencies.xml:6
-        }
-        maven {
-            url "https://aa-sdk.s3-eu-west-1.amazonaws.com/android_repo" // Assets/CleverAdsSolutions/Editor/CASAndroidSuperAwesomeDependencies.xml:6
-        }
         mavenLocal()
 // Android Resolver Repos End
         flatDir {

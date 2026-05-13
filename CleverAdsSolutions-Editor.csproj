@@ -60,39 +60,12 @@
     <Analyzer Include="D:\unity editors\2022.3.62f3-x86_64\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CleverAdsSolutions\Editor\CASPreprocessBuild.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Editor\CASPostGenerateGradle.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Editor\BaseAdObjectInspector.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Editor\CASPostprocessBuild.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Editor\CASEditorSettings.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Editor\CASInitSettignsInspector.cs" />
     <Compile Include="Assets\CleverAdsSolutions\Editor\DependencyManager.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Editor\CASPreprocessGradle.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Editor\CASEditorUtils.cs" />
     <Compile Include="Assets\CleverAdsSolutions\Editor\ManagerIndexDrawer.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Editor\CASInternal.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidKidozDependencies.xml" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidYandexAdsDependencies.xml" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidIronSourceDependencies.xml" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidCrossPromotionDependencies.xml" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidLiftoffMonetizeDependencies.xml" />
     <None Include="Assets\CleverAdsSolutions\Editor\CleverAdsSolutions-Editor.asmdef" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidHyprMXDependencies.xml" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidChartboostDependencies.xml" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidMintegralDependencies.xml" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidSmaatoDependencies.xml" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidSuperAwesomeDependencies.xml" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASBaseDependencies.xml" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidUnityAdsDependencies.xml" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidInMobiDependencies.xml" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidGoogleAdsDependencies.xml" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidBigoDependencies.xml" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidPangleDependencies.xml" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidAppLovinDependencies.xml" />
     <None Include="Assets\CleverAdsSolutions\Editor\clever-ads-solutions-version-3.2.0-manifest.txt" />
-    <None Include="Assets\CleverAdsSolutions\Editor\CASAndroidAudienceNetworkDependencies.xml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -1057,10 +1030,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="CleverAdsSolutions.csproj">
-      <Project>{91394D36-A947-095B-5619-53F7C8EFD4A6}</Project>
-      <Name>CleverAdsSolutions</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{7F3FA21F-70B2-926D-D9B1-1DEEAE6E5120}</Project>
       <Name>UnityEditor.UI</Name>

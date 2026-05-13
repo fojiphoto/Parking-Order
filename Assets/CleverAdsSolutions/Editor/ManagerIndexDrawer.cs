@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace CAS.AdObject
 {
-    [CustomPropertyDrawer( typeof( ManagerIndex ) )]
+    //[CustomPropertyDrawer( typeof( ManagerIndex ) )]
     [CanEditMultipleObjects]
     internal class ManagerIndexDrawer : PropertyDrawer
     {
@@ -42,15 +42,15 @@ namespace CAS.AdObject
 
         private string[] GetIDS( BuildTarget target )
         {
-            var settings = CASEditorUtils.GetSettingsAsset( target, false );
-            if (settings && settings.managersCount > 0)
-            {
-                var result = new string[settings.managersCount];
-                for (int i = 0; i < settings.managersCount; i++)
-                    result[i] = settings.GetManagerId( i );
-                if (result.Length > 1 || !string.IsNullOrEmpty( result[0] ))
-                    return result;
-            }
+            //var settings = CASEditorUtils.GetSettingsAsset( target, false );
+            //if (settings && settings.managersCount > 0)
+            //{
+            //    var result = new string[settings.managersCount];
+            //    for (int i = 0; i < settings.managersCount; i++)
+            //        result[i] = settings.GetManagerId( i );
+            //    if (result.Length > 1 || !string.IsNullOrEmpty( result[0] ))
+            //        return result;
+            //}
             return new[] { "Default" };
         }
     }

@@ -9,8 +9,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gameManagerInstance;
     public int countTracks,numberOfMoves;
+    public int levelNum;
     public bool victorybool, losebool;
     [SerializeField] Text TotalCount_Text;
+    [SerializeField] Text LevelNum_Text;
     [SerializeField] LevelData LevelData;
     [SerializeField] GameObject LevelFailPanel, LevelCompletePanel, PausePanel;
 
@@ -33,7 +35,9 @@ public class GameManager : MonoBehaviour
         countTracks = GameObject.FindGameObjectsWithTag("path").Length;
 
         numberOfMoves = LevelData.LvlData[LevelManager.CurrentLevel].NumberofMoves;
+        levelNum = LevelManager.CurrentLevel;
         UpdateMovesCount();
+        UpdateLevelCount();
 
         Init_BtnEvents();
     }
@@ -56,7 +60,7 @@ public class GameManager : MonoBehaviour
     private void Pause()
     {
         //AdsManager.instance.ShowInterstitialWithoutConditions();
-        CASAds.instance.ShowInterstitial();
+        //CASAds.instance.ShowInterstitial();
         AudioManager.instance?.SetMasterVolume(0);
         PausePanel.SetActive(true);
     }
@@ -66,7 +70,7 @@ public class GameManager : MonoBehaviour
         AudioManager.instance?.SetMasterVolume(1);
 
         // AdsManager.instance.ShowInterstitialWithoutConditions();
-        CASAds.instance.ShowInterstitial();
+        //CASAds.instance.ShowInterstitial();
         AudioManager.instance?.Click();
         SceneManager.LoadScene("GamePlay");
         int lvl = PlayerPrefsManager.Get(PlayerPrefsManager.CurrentLevel, 0);
@@ -82,7 +86,7 @@ public class GameManager : MonoBehaviour
         AudioManager.instance?.SetMasterVolume(1);
 
         // AdsManager.instance.ShowInterstitialWithoutConditions();
-        CASAds.instance.ShowInterstitial();
+        //CASAds.instance.ShowInterstitial();
 
         SceneManager.LoadScene("MainMenu");
     }
@@ -113,7 +117,7 @@ public class GameManager : MonoBehaviour
             LevelManager.CurrentLevel = lvl;
             PlayerPrefsManager.Set(PlayerPrefsManager.CurrentLevel, lvl);
             //AdsManager.instance.ShowInterstitialWithoutConditions();
-            CASAds.instance.ShowInterstitial();
+            //CASAds.instance.ShowInterstitial();
             AudioManager.instance?.PlaySoundEffect(AudioManager.instance?.soundEffects[1]);
         }
     }
@@ -127,7 +131,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("You Lose!");
             LevelFailPanel.SetActive(true);
             //AdsManager.instance.ShowInterstitialWithoutConditions();
-            CASAds.instance.ShowInterstitial();
+            //CASAds.instance.ShowInterstitial();
 
             AudioManager.instance?.PlaySoundEffect(AudioManager.instance?.soundEffects[2]);
 
@@ -139,5 +143,12 @@ public class GameManager : MonoBehaviour
             TotalCount_Text.text = numberOfMoves.ToString();
     }
 
-    
+    public void UpdateLevelCount()
+    {
+        if(levelNum > -1)
+        {
+            levelNum++;
+            LevelNum_Text.text = levelNum.ToString();
+        }
+    }
 }

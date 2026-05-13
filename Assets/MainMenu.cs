@@ -35,7 +35,10 @@ public class MainMenu : MonoBehaviour
     {
         LoadingScene("GamePlay");
         LoadingPanel.SetActive(true);
-        AudioManager.instance.Click();
+        if(AudioManager.instance != null)
+        {
+            AudioManager.instance.Click();
+        }
     }
 
     private void LoadingScene(string Scene)
@@ -50,20 +53,20 @@ public class MainMenu : MonoBehaviour
 
     void ShowAd() 
     {
-        CASAds.instance?.ShowInterstitial();
+        //CASAds.instance?.ShowInterstitial();
     }
     private void SwitchScene(string Scene)
     {
         //AdsManager.instance.HideMRec();
-        CASAds.instance.HideMrecBanner();
+        //CASAds.instance.HideMrecBanner();
 
         SceneManager.LoadScene(Scene);
     }
 
     public void RevokeConcent()
     {
-        CASAds.instance?.HideBanner();
-        CASAds.instance?.HideMrecBanner();
+        //CASAds.instance?.HideBanner();
+        //CASAds.instance?.HideMrecBanner();
         PlayerPrefs.SetInt("GDPR", 0);
         Application.LoadLevel("GDPR");
     }

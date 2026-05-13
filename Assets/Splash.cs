@@ -16,7 +16,7 @@ public class Splash : MonoBehaviour
         {
             //AdsManager.instance.ShowBanner();
                 SceneManager.LoadScene("MainMenu");
-                 CASAds.instance.ShowBanner(CAS.AdPosition.BottomCenter);
+                 //CASAds.instance.ShowBanner(CAS.AdPosition.BottomCenter);
         });
         
     }

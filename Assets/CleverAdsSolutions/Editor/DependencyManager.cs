@@ -9,34 +9,34 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-using Utils = CAS.UEditor.CASEditorUtils;
+//using Utils = CAS.UEditor.CASEditorUtils;
 
 namespace CAS.UEditor
 {
     [Serializable]
     public partial class DependencyManager
     {
-        public Dependency[] solutions
-        {
-            get { return simple; }
-        }
+        //public Dependency[] solutions
+        //{
+        //    //get { return simple; }
+        //}
 
-        public Dependency[] networks
-        {
-            get { return adapters; }
-        }
+        //public Dependency[] networks
+        //{
+        //    //get { return adapters; }
+        //}
 
-        public static DependencyManager Create(BuildTarget platform, Audience audience, bool deepInit)
-        {
-            string listPath = Utils.GetTemplatePath("CAS" + platform.ToString() + "Mediation.list");
-            if (listPath == null)
-                return null;
+        //public static DependencyManager Create(BuildTarget platform, Audience audience, bool deepInit)
+        //{
+        //    //string listPath = Utils.GetTemplatePath("CAS" + platform.ToString() + "Mediation.list");
+        //    //if (listPath == null)
+        //    //    return null;
 
-            var mediation = JsonUtility.FromJson<DependencyManager>(File.ReadAllText(listPath));
-            mediation.Init(platform, deepInit);
-            mediation.SetAudience(audience);
-            return mediation;
-        }
+        //    //var mediation = JsonUtility.FromJson<DependencyManager>(File.ReadAllText(listPath));
+        //    //mediation.Init(platform, deepInit);
+        //    //mediation.SetAudience(audience);
+        //    //return mediation;
+        //}
 
         public static DependencyManager Create(Dependency[] solutions, Dependency[] adapters)
         {
@@ -47,78 +47,78 @@ namespace CAS.UEditor
         {
             return new DependencyManager()
             {
-                version = MobileAds.wrapperVersion,
-                simple = solutions,
-                adapters = adapters,
-                deprecated = deprecated
+                //version = MobileAds.wrapperVersion,
+                //simple = solutions,
+                //adapters = adapters,
+                //deprecated = deprecated
             };
         }
 
         // Reflection target
         [UnityEngine.Scripting.Preserve]
-        public static string GetActiveMediationPattern()
-        {
-            var target = Create(EditorUserBuildSettings.activeBuildTarget, Audience.Mixed, true);
-            return GetActiveMediationPattern(target);
-        }
+        //public static string GetActiveMediationPattern()
+        //{
+        //    var target = Create(EditorUserBuildSettings.activeBuildTarget, Audience.Mixed, true);
+        //    return GetActiveMediationPattern(target);
+        //}
 
-        public static string GetActiveMediationPattern(DependencyManager manager, int size = 25)
-        {
-            if (manager == null)
-                return "";
+        //public static string GetActiveMediationPattern(DependencyManager manager, int size = 25)
+        //{
+        //    if (manager == null)
+        //        return "";
 
-            var result = new char[size];
-            for (int i = 0; i < size; i++)
-            {
-                var dependency = manager.Find((AdNetwork)i);
-                result[i] = (dependency != null && dependency.IsInstalled()) ? '1' : '0';
-            }
-            return new string(result);
-        }
+        //    var result = new char[size];
+        //    for (int i = 0; i < size; i++)
+        //    {
+        //        var dependency = manager.Find((AdNetwork)i);
+        //        result[i] = (dependency != null && dependency.IsInstalled()) ? '1' : '0';
+        //    }
+        //    return new string(result);
+        //}
 
-        public Dependency Find(AdNetwork network)
-        {
-            if (network == Dependency.noNetwork)
-                return null;
-            return Find(network.GetName());
-        }
+        //public Dependency Find(AdNetwork network)
+        //{
+        //    //if (network == Dependency.noNetwork)
+        //    //    return null;
+        //    //return Find(network.GetName());
+        //}
 
-        public Dependency Find(string name)
-        {
-            if (name == Dependency.adBaseName)
-            {
-                var dep = new Dependency(name);
-                dep.version = Dependency.FindInstalledVersion(name, platform);
-                dep.installedVersion = dep.version;
-                return dep;
-            }
+        //public Dependency Find(string name)
+        //{
+        //    //if (name == Dependency.adBaseName)
+        //    //{
+        //    //    var dep = new Dependency(name);
+        //    //    dep.version = Dependency.FindInstalledVersion(name, platform);
+        //    //    dep.installedVersion = dep.version;
+        //    //    return dep;
+        //    //}
 
-            for (int i = 0; i < solutions.Length; i++)
-            {
-                if (solutions[i].name == name)
-                    return solutions[i];
-            }
-            for (int i = 0; i < adapters.Length; i++)
-            {
-                if (adapters[i].name == name)
-                    return adapters[i];
-            }
-            return null;
-        }
+        //    //for (int i = 0; i < solutions.Length; i++)
+        //    //{
+        //    //    if (solutions[i].name == name)
+        //    //        return solutions[i];
+        //    //}
+        //    //for (int i = 0; i < adapters.Length; i++)
+        //    //{
+        //    //    if (adapters[i].name == name)
+        //    //        return adapters[i];
+        //    //}
+        //    //return null;
+        //}
 
         public void UpdateDependencies()
         {
-            for (int i = 0; i < solutions.Length; i++)
-            {
-                if (solutions[i].isNewer)
-                    solutions[i].ActivateDependencies(platform, this);
-            }
+            //for (int i = 0; i < solutions.Length; i++)
+            //{
+            //    if (solutions[i].isNewer)
+            //        solutions[i].ActivateDependencies(platform, this);
+            //}
 
-            for (int i = 0; i < adapters.Length; i++)
-            {
-                if (adapters[i].isNewer)
-                    adapters[i].ActivateDependencies(platform, this);
-            }
+            //for (int i = 0; i < adapters.Length; i++)
+            //{
+            //    if (adapters[i].isNewer)
+            //        adapters[i].ActivateDependencies(platform, this);
+            //}
         }
 
         [Obsolete("Use UpdateDependencies() without build target instead")]
@@ -127,62 +127,62 @@ namespace CAS.UEditor
             UpdateDependencies();
         }
 
-        public string GetInstalledVersion()
-        {
-            string version = "";
-            var casDep = Find(Dependency.adBaseName);
-            if (casDep != null)
-                version = casDep.version;
-            if (!string.IsNullOrEmpty(version))
-                return version;
+        //public string GetInstalledVersion()
+        //{
+        //    //string version = "";
+        //    //var casDep = Find(Dependency.adBaseName);
+        //    //if (casDep != null)
+        //    //    version = casDep.version;
+        //    //if (!string.IsNullOrEmpty(version))
+        //    //    return version;
 
-            casDep = Find(Dependency.adOptimalName);
-            if (casDep != null)
-                version = casDep.installedVersion;
-            if (!string.IsNullOrEmpty(version))
-                return version;
+        //    //casDep = Find(Dependency.adOptimalName);
+        //    //if (casDep != null)
+        //    //    version = casDep.installedVersion;
+        //    //if (!string.IsNullOrEmpty(version))
+        //    //    return version;
 
-            casDep = Find(Dependency.adFamiliesName);
-            if (casDep != null)
-                version = casDep.installedVersion;
+        //    //casDep = Find(Dependency.adFamiliesName);
+        //    //if (casDep != null)
+        //    //    version = casDep.installedVersion;
 
-            return version;
-        }
+        //    //return version;
+        //}
 
         public int GetInstalledBuildCode()
         {
-            var version = GetInstalledVersion();
-            if (!string.IsNullOrEmpty(version))
-            {
-                try
-                {
-                    var parsesV = new System.Version(version);
-                    return parsesV.Major * 1000 + parsesV.Minor * 100 + parsesV.Build;
-                }
-                catch { }
-            }
+            //    ////var version = GetInstalledVersion();
+            //    //if (!string.IsNullOrEmpty(version))
+            //    //{
+            //    //    try
+            //    //    {
+            //    //        var parsesV = new System.Version(version);
+            //    //        return parsesV.Major * 1000 + parsesV.Minor * 100 + parsesV.Build;
+            //    //    }
+            //    //    catch { }
+            //    //}
             return 0;
         }
-        
+
         public bool IsNewerVersionFound()
         {
-            for (int i = 0; i < simple.Length; i++)
-            {
-                if (simple[i].isNewer)
-                    return true;
-            }
-            for (int i = 0; i < adapters.Length; i++)
-            {
-                if (adapters[i].isNewer)
-                    return true;
-            }
+            //for (int i = 0; i < simple.Length; i++)
+            //{
+            //    if (simple[i].isNewer)
+            //        return true;
+            //}
+            //for (int i = 0; i < adapters.Length; i++)
+            //{
+            //    if (adapters[i].isNewer)
+            //        return true;
+            //}
             return false;
         }
 
-        public Dependency FindCrossPromotion()
-        {
-            return Find(AdNetwork.CrossPromotion.GetName());
-        }
+        //public Dependency FindCrossPromotion()
+        //{
+        //    //return Find(AdNetwork.CrossPromotion.GetName());
+        //}
     }
 
     [Serializable]

@@ -60,30 +60,9 @@
     <Analyzer Include="D:\unity editors\2022.3.62f3-x86_64\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\Internal\Unity\CASViewClient.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\AdObject\InterstitialAdObject.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\Internal\iOS\CASImpressionClient.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\Internal\Unity\CASManagerClient.cs" />
     <Compile Include="Assets\CleverAdsSolutions\Runtime\Common\ATTrackingStatus.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\Internal\iOS\CASExterns.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\Internal\iOS\CASManagerClient.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\Internal\Android\CASViewClient.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\Internal\iOS\CASViewClient.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\Internal\Android\CASJavaBridge.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\AdObject\ManagerAdObject.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\Internal\Unity\CASImpressionClient.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\AdObject\BannerAdObject.cs" />
     <Compile Include="Assets\CleverAdsSolutions\Runtime\Common\MobileAds.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\Internal\Android\CASSettingsClient.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\Internal\Unity\CASSettingsClient.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\Internal\Android\CASManagerClient.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\Internal\Android\CASImpressionClient.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\AdObject\RewardedAdObject.cs" />
     <Compile Include="Assets\CleverAdsSolutions\Runtime\Common\MediationExtras.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\Internal\CASFactory.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\Internal\iOS\CASSettingsClient.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\AdObject\ReturnToPlayAdObject.cs" />
-    <Compile Include="Assets\CleverAdsSolutions\Runtime\Internal\CASInitSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\CleverAdsSolutions\Runtime\CleverAdsSolutions.asmdef" />

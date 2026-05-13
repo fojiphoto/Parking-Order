@@ -112,7 +112,6 @@
     <Compile Include="Assets\GameAnalytics\Plugins\Scripts\Events\GA_Progression.cs" />
     <Compile Include="Assets\PlayerPrefsManager.cs" />
     <Compile Include="Assets\GameAnalytics\Plugins\Scripts\ILRD\Mopub\GAMopubIntegration.cs" />
-    <Compile Include="Assets\Scripts\CASAds.cs" />
     <Compile Include="Assets\Scripts\CarManager.cs" />
     <Compile Include="Assets\GameAnalytics\Plugins\Playmaker\GetABTestingId.cs" />
     <Compile Include="Assets\GameAnalytics\Plugins\Scripts\Wrapper\GA_Wrapper.cs" />
@@ -161,7 +160,6 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\GameAnalytics\Plugins\WSA\x64\GameAnalytics.UWP.dll" />
-    <None Include="Assets\CleverAdsSolutions\Templates\CASSKAdNetworks.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
@@ -1084,10 +1082,6 @@
     <ProjectReference Include="Unity.2D.Animation.Runtime.csproj">
       <Project>{6D5E4485-52F1-326F-BA7D-3C8344AF5AD8}</Project>
       <Name>Unity.2D.Animation.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="CleverAdsSolutions.csproj">
-      <Project>{91394D36-A947-095B-5619-53F7C8EFD4A6}</Project>
-      <Name>CleverAdsSolutions</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Core.Editor.csproj">
       <Project>{FAEA8D74-51D6-6F6B-D6E0-B7CE72851014}</Project>

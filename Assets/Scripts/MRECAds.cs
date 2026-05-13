@@ -7,11 +7,11 @@ public class MRECAds : MonoBehaviour
     private void OnEnable()
     {
         //AdsManager.instance.ShowMRec();
-        CASAds.instance.ShowMrecBanner(CAS.AdPosition.TopCenter);
+        //CASAds.instance.ShowMrecBanner(CAS.AdPosition.TopCenter);
     }
     private void OnDisable()
     {
         //AdsManager.instance.HideMRec();
-        CASAds.instance.HideMrecBanner();
+        //CASAds.instance.HideMrecBanner();
     }
 }
