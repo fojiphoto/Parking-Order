@@ -393,10 +393,10 @@ RectTransform:
   - {fileID: 527655660}
   m_Father: {fileID: 1149057855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.128}
-  m_AnchorMax: {x: 0.5, y: 0.128}
-  m_AnchoredPosition: {x: 0, y: 1}
-  m_SizeDelta: {x: 947, y: 52}
+  m_AnchorMin: {x: 0.5, y: 0.10047917}
+  m_AnchorMax: {x: 0.5, y: 0.10047917}
+  m_AnchoredPosition: {x: 0, y: 2.5}
+  m_SizeDelta: {x: 947, y: 51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &517449926
 MonoBehaviour:
@@ -651,10 +651,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1149057855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -214, y: 272.76}
-  m_SizeDelta: {x: 495.1871, y: 67.064026}
+  m_AnchorMin: {x: 0.5, y: 0.10047917}
+  m_AnchorMax: {x: 0.5, y: 0.10047917}
+  m_AnchoredPosition: {x: -214, y: 23.76001}
+  m_SizeDelta: {x: 495.1871, y: 69.064026}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &794102898
 MonoBehaviour:
@@ -1755,8 +1755,8 @@ MonoBehaviour:
   targetGO: {fileID: 0}
   tweenTargetIsTargetGO: 1
   delay: 0
-  duration: 2
-  easeType: 31
+  duration: 1
+  easeType: 1
   easeCurve:
     serializedVersion: 2
     m_Curve:
@@ -1792,13 +1792,13 @@ MonoBehaviour:
   isActive: 1
   isValid: 1
   target: {fileID: 1898207535}
-  animationType: 11
+  animationType: 5
   targetType: 11
   forcedTargetType: 0
   autoPlay: 1
   useTargetAsV3: 0
-  endValueFloat: 0
-  endValueV3: {x: 0.1, y: 0.1, z: 0.1}
+  endValueFloat: 0.8
+  endValueV3: {x: 0, y: 0, z: 0}
   endValueV2: {x: 0, y: 0}
   endValueColor: {r: 1, g: 1, b: 1, a: 1}
   endValueString: 
@@ -1809,7 +1809,7 @@ MonoBehaviour:
     width: 0
     height: 0
   endValueTransform: {fileID: 0}
-  optionalBool0: 0
+  optionalBool0: 1
   optionalBool1: 0
   optionalFloat0: 1
   optionalInt0: 3
